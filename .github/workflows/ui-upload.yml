@@ -16,7 +16,7 @@ jobs:
       github.event.workflow_run.conclusion == 'success'
     steps:
       - name: Download commit artifact
-        uses: dawidd6/action-download-artifact@v2
+        uses: dawidd6/action-download-artifact@v6
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           name: commit
@@ -26,7 +26,7 @@ jobs:
         run: echo "::set-output name=id::$(<commit.txt)"
 
       - name: Download branch artifact
-        uses: dawidd6/action-download-artifact@v2
+        uses: dawidd6/action-download-artifact@v6
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           name: branch
@@ -36,7 +36,7 @@ jobs:
         run: echo "::set-output name=id::$(<branch.txt)"
 
       - name: Download snapshots artifact
-        uses: dawidd6/action-download-artifact@v2
+        uses: dawidd6/action-download-artifact@v6
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           workflow_conclusion: success
